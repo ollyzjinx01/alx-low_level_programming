@@ -1,34 +1,31 @@
 #include <stdio.h>
 /**
  * main - a program that prints all possible different combinations
- * Return: 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-int i = '0';
-int j = '0';
-while (i <= '9')
+int combination = 1;
+while (combination <= 89)
 {
-while (j <= '9')
-{
-if (!(i > j) || i == j)
-{
-putchar(i);
-putchar(j);
-if (i == '8' && j == '9')
-{
-putchar('\n');
-}
-else
+int firstDigit = combination / 10;
+int secondDigit = combination % 10;
+putchar(firstDigit + '0');
+putchar(secondDigit + '0');
+if (combination != 89)
 {
 putchar(',');
 putchar(' ');
 }
+if (secondDigit != 9)
+{
+combination++;
 }
-j++;
+else
+{
+combination += (firstDigit + 2);
 }
-j = '0';
-i++;
 }
+putchar('\n');
 return (0);
 }
