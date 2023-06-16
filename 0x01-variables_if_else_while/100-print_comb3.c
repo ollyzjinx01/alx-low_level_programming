@@ -5,14 +5,17 @@
  */
 int main(void)
 {
-int i, j;
-for (i = '0'; i <= '8'; i++)
+int a = '0';
+int b = '0';
+while (a <= '9')
 {
-for (j = i + '1'; j <= '9'; j++)
+while (b <= '9')
 {
-putchar(i + '0');
-putchar(j + '0');
-if (i == '8' && j == '9')
+if (!(a > b) || a == b)
+{
+putchar(a);
+putchar(b);
+if (a == '8' && b == '9')
 {
 putchar('\n');
 }
@@ -22,6 +25,10 @@ putchar(',');
 putchar(' ');
 }
 }
+b++;
+}
+b = a + '1';
+a++;
 }
 return (0);
 }
